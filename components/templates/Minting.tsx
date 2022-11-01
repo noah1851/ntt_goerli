@@ -55,6 +55,10 @@ const Component: React.FC = () => {
               </Button>
             )}
             <Text pt={2} fontSize="xs" textAlign={'center'}>
+              Please note that you can press the mint button only once per wallet during the private sale.
+              You can press the mint button multiple times in public sale.
+            </Text>
+            <Text pt={2} fontSize="xs" textAlign={'center'}>
               {store.claimedSupply} / {store.totalSupply}
             </Text>
             <Text pt={2} fontSize="xs" textAlign={'center'}>
