@@ -18,7 +18,7 @@ const Component: React.FC = () => {
   const address = useAddress()
  
   const [mintcount, setMintcount] = useState('');
-  const { mint } = useMint(2)
+  const { mint } = useMint(Number(mintcount))
   const { connectWallet } = useConnectWallet()
 
   return (
@@ -47,7 +47,7 @@ const Component: React.FC = () => {
                 <Text fontSize="xs">Connect Wallet</Text>
               </Button>
             )}
-            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => {const value:number = Number(event)}}>
+            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)}>
               <NumberInputField />
               <NumberInputStepper>
                 <NumberIncrementStepper />
