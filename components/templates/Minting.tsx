@@ -37,7 +37,7 @@ const Component: React.FC = () => {
 
           <div>
             {address ? (
-              <Button onClick={mint} disabled={store.isClaiming}>
+              <Button onClick={mint} disabled={store.isClaiming} textAlign={'center'}>
                 {store.isClaiming
                   ? 'claiming...'
                   : `MINT (${store.claimPrice} ETH)`}
