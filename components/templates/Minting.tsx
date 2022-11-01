@@ -36,7 +36,7 @@ const Component: React.FC = () => {
           </Box>
 
           <div>
-            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)} width="240px">
+            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)} width="240px" textAlign={'center'}>
               <NumberInputField />
               <NumberInputStepper>
                 <NumberIncrementStepper />
