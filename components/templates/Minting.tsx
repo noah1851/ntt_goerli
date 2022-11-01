@@ -47,7 +47,7 @@ const Component: React.FC = () => {
                 <Text fontSize="xs">Connect Wallet</Text>
               </Button>
             )}
-            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => {const value:number = Number(event.target.value)}}>
+            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => {const value:number = Number(event)}}>
               <NumberInputField />
               <NumberInputStepper>
                 <NumberIncrementStepper />
