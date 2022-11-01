@@ -1,5 +1,10 @@
-import { Box, Button, Flex, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, Flex, Text, VStack, NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,} from '@chakra-ui/react'
 import { useContext } from 'react'
+import { useState } from 'react'
 import { NftContractContext } from '../../contexts/NftContractProvider'
 import { useConnectWallet } from '../../hooks/useConnectWallet'
 import { useMint } from '../../hooks/useMint'
@@ -11,7 +16,8 @@ import { useAddress } from '@thirdweb-dev/react'
 const Component: React.FC = () => {
   const store = useContext(NftContractContext)
   const address = useAddress()
-
+ 
+  const [mintcount, setMintcount] = useState('');
   const { mint } = useMint(2)
   const { connectWallet } = useConnectWallet()
 
@@ -41,6 +47,13 @@ const Component: React.FC = () => {
                 <Text fontSize="xs">Connect Wallet</Text>
               </Button>
             )}
+            <NumberInput defaultValue={1} min={1} max={10} onChange={event => setMintcount(event.valueOf)}>
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
             <Text pt={2} fontSize="xs" textAlign={'center'}>
               {store.claimedSupply} / {store.totalSupply}
             </Text>
