@@ -36,26 +36,24 @@ const Component: React.FC = () => {
           </Box>
 
           <div>
-            <Stack spacing={4} direction='row' align='center'>
-              {address ? (
-                <Button onClick={mint} disabled={store.isClaiming}>
-                  {store.isClaiming
-                    ? 'claiming...'
-                    : `MINT (${store.claimPrice} ETH)`}
-                </Button>
-              ) : (
-                <Button onClick={connectWallet}>
-                  <Text fontSize="xs">Connect Wallet</Text>
-                </Button>
-              )}
-              <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)}>
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </Stack>
+            {address ? (
+              <Button onClick={mint} disabled={store.isClaiming} width="240px">
+                {store.isClaiming
+                  ? 'claiming...'
+                  : `MINT (${store.claimPrice} ETH)`}
+              </Button>
+            ) : (
+              <Button onClick={connectWallet}>
+                <Text fontSize="xs">Connect Wallet</Text>
+              </Button>
+            )}
+            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)} width="240px">
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
             <Text pt={2} fontSize="xs" textAlign={'center'}>
               {store.claimedSupply} / {store.totalSupply}
             </Text>
