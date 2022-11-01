@@ -10,7 +10,7 @@ import {
 
 import { NftContractContext } from '../contexts/NftContractProvider'
 
-export const useMint = () => {
+export const useMint = (mintcount: number) => {
   const { data: nftDrop } = useContract(
     process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     'nft-drop'
@@ -36,7 +36,7 @@ export const useMint = () => {
     store.setIsClaiming && store.setIsClaiming(true)
 
     try {
-      const minted = await nftDrop?.claim(1)
+      const minted = await nftDrop?.claim(mintcount)
       alert(`Successfully minted NFT!`)
     } catch (error) {
       console.error(error)

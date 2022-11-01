@@ -12,7 +12,7 @@ const Component: React.FC = () => {
   const store = useContext(NftContractContext)
   const address = useAddress()
 
-  const { mint } = useMint()
+  const { mint } = useMint(2)
   const { connectWallet } = useConnectWallet()
 
   return (
