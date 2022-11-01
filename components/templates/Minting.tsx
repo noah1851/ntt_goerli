@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Text, VStack, Stack NumberInput,
+import { Box, Button, Flex, Text, VStack, NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
@@ -36,6 +36,13 @@ const Component: React.FC = () => {
           </Box>
 
           <div>
+            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)} width="240px">
+              <NumberInputField />
+              <NumberInputStepper>
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
             {address ? (
               <Button onClick={mint} disabled={store.isClaiming} width="240px">
                 {store.isClaiming
@@ -47,13 +54,6 @@ const Component: React.FC = () => {
                 <Text fontSize="xs">Connect Wallet</Text>
               </Button>
             )}
-            <NumberInput defaultValue={1} min={1} max={10} onChange={(event) => setMintcount(event)} width="240px">
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
             <Text pt={2} fontSize="xs" textAlign={'center'}>
               {store.claimedSupply} / {store.totalSupply}
             </Text>
